@@ -1,0 +1,290 @@
+* {box-sizing: border-box}
+.outside{
+	margin-left: 400px;
+}
+.out{
+width:420px;
+
+border:1px solid lightgrey;
+}
+.nava{
+	height:80px;
+	background-color: #339980;
+}
+/*--------------------dot line---------*/
+.mySlides {display:none ;}
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+li.b{
+	font-size: 25px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  padding: 16px;
+  font-weight: bold;
+ font-size: 20px;
+  
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 2px;
+  background-color:#339980;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid lightgrey;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: lightgrey;
+}
+
+/* Fading animation */
+#hdd{
+  height:200px;
+  width: 600px;
+  border: 1px solid black;
+  position:relative;
+}
+.form-group .icon {
+  position: relative;
+  float: left;
+  margin-left: 8px;
+  margin-top: -24px;
+  z-index: 2;
+  color: #222222;
+}
+
+.col .icon {
+  position: relative;
+  float: left;
+  margin-left: 8px;
+  margin-top: -24px;
+  z-index: 2;
+  color: #222222;
+}
+
+	.column-left {
+  float: left;
+  width: 7%;
+  padding-top:0px;
+}
+.column-right{
+	padding-top:2px;
+	 float: left;
+  width: 93%;
+}
+.row{
+	width:400px;
+	padding-left: 35px;
+	padding-right: 10px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.form-group{
+padding-top:30px;
+}
+.form-row{
+padding-top:30px;
+}
+
+span.a{
+display:inline-block;
+padding-left: 40px;
+padding-top:28px;
+}
+span.b{
+display:inline-block;
+padding-left:0px ;
+padding-top:;
+}
+
+
+
+input[type='radio'] {
+        -webkit-appearance: none;
+        width: 13px;
+        height: 13px;
+        
+        border-radius: 50%;
+        border: 2px solid grey;
+        outline: none;
+        
+    }
+ input[type='radio']:checked:after {
+        width: 13px;
+        height: 13px;
+        border-radius: 15px;
+        top: -2px;
+        left: -2px;
+        position: relative;
+        background-color: #339980;
+        content: '';
+        display: block;
+        visibility: visible;
+        border: 1px solid white;
+    }
+ 
+   input[type="checkbox"]#myCheck:checked  { border-​color: red; background-color:red; }
+
+
+sup{
+	padding-left:14px;
+}
+li p{
+	padding-left: 45px;
+	color:grey;
+	font-size: 15px;
+}
+li p:hover{
+	color:black;
+}
+li span{
+	
+}
+li input[type="text"]{
+	border-top: 0;
+	border-left: 0;
+	border-radius: 0;
+	border-right: 0;
+	font-size: 22px;
+	 font-family: Arial, Helvetica, sans-serif;
+}
+
+li input[type="text"]:focus{
+	border-top:none;
+	border-left: none;
+	border-right: none;
+	outline:none;
+}
+.p #ll{
+	padding-left: 30px;
+	color:grey;
+	font-size: 15px;
+}
+.card-body{
+	padding:30px 25px 30px 5px;
+}
+
+
+
+.navbar {
+    width: 100%;
+    height:90px;
+    padding:0px;
+    margin:0px;
+    background-color: #339980;
+    }
+  
+  /* Navigation links */
+   .aa {
+    float: left;
+    color: black;
+    text-decoration: none;
+    font-size: 17px;
+    outline:none;
+    height:90px;
+    width: 50%; 
+    padding-top:3px;
+    text-align: center; 
+    border:none;
+    border-bottom: none;
+    background-color:#339980;
+
+  }
+  
+  /* Add a background color on mouse-over */
+  
+  .navbar.aa:hover{
+  	display:block;
+  }
+  img #pp{
+    border-radius: ;
+  }
+/*
+  .navbar.aa.line:{
+  	display:none;
+  	height:5px;
+  	width:100%;
+  	color:white;
+  }*/
+  /* Style the current/active link */
+  .aa.active {
+    box-shadow: 0;
+    background-color: #339980;
+     border-bottom:none ; 
+     display:block;
+  }
+
+  
+.form-control{
+border-top:0;
+border-right: 0;
+border-left: 0;
+width: 100%; 
+border-radius: 0px;
+padding: 10px 0px 1px 10px;
+             
+}
+.form-control:focus {
+  
+  border-top::0px;
+  border-left: 0px;
+  border-right: 0px;
+  box-shadow: none;
+  border-bottom: 4px solid green;
+}
+.form-control:focus::placeholder {
+  
+  color: transparent;
+}
+input[type="text"]:focus::placeholder {
+  
+  color: transparent;
+}
+span.r{
+	display:inline-block;
+	border: 2px solid black;
+}
+.form-control input[type="text"]::placeholder {
+color:red;
+}
+.form-row input[type="text"]{
+
+}
+.cardimg{
+	padding-top: 30px;
+	padding-left: 90px;
+}
+ #bttn{
+      width:350px;
+      height:100px;
+      padding-top: 40px;
+      padding-left: 50px;
+  border-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
