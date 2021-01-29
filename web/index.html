@@ -14,8 +14,8 @@
   <script src= "https://code.jquery.com/jquery-1.12.4.min.js"> 
   </script> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
-  <!-----inputicon-->
+ <script src="file:///C:/laragon/www/palmate/web/js/jquery-3.5.1.min.js">
+</script>  <!-----inputicon-->
    <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <script src="js/jquery-3.5.1.min.js"></script>
@@ -400,6 +400,19 @@ input[type='number']#custamt:focus + #lb  #la{
 color:red;
 outline: none;
 }
+#mail{
+  font-size: 15px;padding-left:35px;
+    width:340px;
+}
+#arrow{
+  width:30px;padding-left:199px;padding-top:4px; color:white;
+}
+#second{
+  width:330px;height:60px;padding-left:3px;
+                                  border-top:0px;outline:none;
+  border-left: 0px;
+  border-right: 0px;border-bottom: 3px solid grey;background-color: #339980;color: white;font-size: 22px;border-radius:6px; 
+}
         </style>
 
         <!--input icon-->
@@ -423,11 +436,12 @@ $(document).ready(function(){
 <!--chooseamount block-->
 <div class="nava">
   
-<a class="prev" onclick="plusSlides(-1)"><i class='fa fa-arrow-left' id="pr" style="display:none;color:transparent;font-size: 14px;padding-top: 10px" ></i></a>
+<a class="prev" id="stepBack" onclick="plusSlides(-1)" style="visibility:hidden;"><i class='fa fa-arrow-left' id="pr" style="color:white;font-size: 14px;padding-top: 10px" ></i></a>
 
 <span class="a" style="font-size: 18px;color:white;padding-left: 65px">
-  <p class="a1">Choose amount</p>
-  <p class="a2" style="display:none">Donate</p>
+  <p id="a1">Choose amount</p>
+  <p id="a2" style="display:none;padding-left:20px">Information</p>
+   <p id="a3" style="display:none;padding-left:50px">Donate</p>
 </span>
 <span class="a " style="padding-left: 13px"><i class="fa fa-lock" style="font-size:20px;color: lightgrey;"></i></span>
 <span class="a" style="padding-left:8px">
@@ -438,7 +452,7 @@ $(document).ready(function(){
       </div>
     </span>
 
-<span class="a" onclick="plusSlides(1)" style="padding-left: 63px"><i class='fas fa-arrow-right' style="color:white; width:20px;" ></i></span> 
+<span class="a" id="stepForward" onclick="plusSlides(1)" style="visibility:visible;padding-left: 63px"><i class='fas fa-arrow-right' style="color:white; width:20px;" ></i></span> 
 </div>  <!-- Nava end-->
     
 <div class="mySlides ">
@@ -446,13 +460,13 @@ $(document).ready(function(){
           <div class="card-body" >
    
        <ul style="list-style-type:none;padding-right: 15px;padding-left: none;">
-           <li><label><input type="radio" id="other" name="euro1" value="10">
+           <li><label><input type="radio" id="other1" name="euro1" value="10">
               <span style="font-size: 25px"> <sup style="font-size: 16px;color : darkgrey">&#x20A4</sup style="color:black">10</span>
               <p>Give one child a week of life saving nutrition.</p></label>
            </li>
            <hr style=>
            <li>
-            <label><input type="radio" id="other" name="euro1" value="10">
+            <label><input type="radio" id="other2" name="euro1" value="10">
                <span style="font-size: 25px"> <sup style="font-size: 16px;color : darkgrey">&#x20A4</sup>20</span>
               <p>Supply crisis support to immediately increase a families quality of life.</p>
             </label>
@@ -460,7 +474,7 @@ $(document).ready(function(){
            <hr>
            <li>
             <label>
-              <input type="radio" id="other" name="euro1" value="10">
+              <input type="radio" id="other3" name="euro1" value="10">
             
               <span style="font-size: 25px"> <sup style="font-size: 16px;color : darkgrey">&#x20A4</sup>50</span>
               <p>Set up a family with a business that provides ongoing income.</p>
@@ -468,7 +482,7 @@ $(document).ready(function(){
           </li>
           <hr>
            <li>
-            <label><input type="radio" id="other" name="euro1" value="10">
+            <label><input type="radio" id="other4" name="euro1" value="10">
              <span style="font-size: 25px"> <sup style="font-size: 16px;color : darkgrey">&#x20A4</sup>60</span>
               <!-- do using relative and absolute positioning-->
                <p >Provide nutrition and empowerment to an entire family for a month
@@ -479,13 +493,15 @@ $(document).ready(function(){
          
           <li>
             <label>
-              <input type="radio" id="other" name="euro1" value="10">
+             
+              <input type="radio" id="rc" name="euro1" value="10">
               <sup id="lb" style="font-size: 17px;color : darkgrey">&#x20A4</sup>
               <input type="number" name="custamt" id="custamt"  placeholder="Custom Amount" 
               style="width:250px;border-bottom:3px solid grey;border-top:0;border-right: 0;border-left: 0;outline:none;
                " onfocus="numfocus()">
                
               <p id="la">Please input an amount</p>
+            
             </label>
           </li>
        </ul>
@@ -532,10 +548,10 @@ qualifying donations I have made, as well as any future donations, until I notif
 
 
           <div class="text-center" style="padding-bottom: 20px">
-              <button type="button" style="width:350px; height:52px;border-bottom: 3px solid grey;background-color: #339980;border-top:0px;
+              <button type="button" onclick="one()" style="width:350px; height:52px;border-bottom: 3px solid grey;background-color: #339980;border-top:0px;
   border-left: 0px;outline: none;
   border-right: 0px;border-radius:6px;">
-                  <p style="text-align: center;padding-top:7px;color:white;font-size: 20px" onclick="currentSlide(2)" >Next <i class='fas fa-arrow-right' style="color:white; width:20px;padding-left: :7px;" ></i></p>
+                  <p style="text-align: center;padding-top:7px;color:white;font-size: 20px" >Next <i class='fas fa-arrow-right' style="color:white; width:20px;padding-left: :7px;" ></i></p>
               </button>
               <div class="text-info"style="text-decoration: underline;font-size:12px;padding-top: 30px;color:#339980" >
                   Powered by Donorbox 
@@ -549,26 +565,59 @@ qualifying donations I have made, as well as any future donations, until I notif
 <div class="mySlides ">
    <!------------------------------------------------------------------------->  
    <div class="card2  " > 
-  <form style="padding:40px 35px 20px 35px">
+  <form style="padding:40px 35px 20px 35px"  name="contactForm" onsubmit="return validateForm()"  >
+   
+   
+    <div class="row"  style="display:none">
+        <label>Country</label>
+        <select name="country">
+            <option>Select</option>
+            <option>Australia</option>
+            <option>India</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+        </select>
+        <div class="error" id="countryErr"></div>
+    </div>
+    <div class="row" style="display:none">
+        <label>Gender</label>
+        <div class="form-inline">
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+        </div>
+        <div class="error" id="genderErr"></div>
+    </div>
+    <div class="row" style="display:none">
+        <label>Hobbies <i>(Optional)</i></label>
+        <div class="form-inline">
+            <label><input type="checkbox" name="hobbies[]" value="sports"> Sports</label>
+            <label><input type="checkbox" name="hobbies[]" value="movies"> Movies</label>
+            <label><input type="checkbox" name="hobbies[]" value="music"> Music</label>
+        </div>
+    </div>
     <div class="form-row">
       <div class="col ">
         <label>
-        <input type="text" class="form-control" id="" placeholder="     " name="cardnumber" style="font-size: 15px;padding-left: 33px;"><span class="pp" style="font-size: 15px;padding-left: 35px;">First Name</span>
+        <input type="text" class="form-control" id="" placeholder="     " name="name" style="font-size: 15px;padding-left: 33px;">
+        <span class="pp" style="font-size: 15px;padding-left: 35px;">First Name</span>
         <span class="icon fa fa-user fa-lg" style="color:grey"></span>
+         <div class="error" id="nameErr" style="font-size: 10px; color:red;"></div>
       </label>
       </div>
       <div class="col">
         <label>
-        <input type="text" class="form-control" placeholder="   " name="pswd" style="font-size: 15px;padding-left: ;">
+        <input type="text" class="form-control" placeholder="   " name="lname" style="font-size: 15px;padding-left: ;">
         <span class="pp" >Last Name</span>
+            <div class="error" id="lnameErr" style="font-size: 10px; color:red;"></div>
       </label>
       </div>
     </div>
     <div class="form-group">
     <label>
-    <input type="email" class="form-control" placeholder="    " id="email" style="font-size: 15px;padding-left: 35px;width:340px">
+    <input type="text" class="form-control" placeholder="    " name="emailcheck" id="mail">
      <span class="pp" style="font-size: 15px;padding-left: 35px;">Email</span>
     <span class="icon fa fa-envelope fa-lg" style="color: grey"></span>
+            <div class="error" id="emailErr" style="font-size: 10px; color:red;"></div>
 </label>
   </div>
   <div class="form-group">
@@ -584,61 +633,69 @@ qualifying donations I have made, as well as any future donations, until I notif
   </div>
   <div class="form-group">
    <label>
-    <input type="text" class="form-control" placeholder=" " id="email"style="font-size: 15px;padding-left: 35px;width:350px">
+    <input type="text" class="form-control" placeholder=" "  name="address"style="font-size: 15px;padding-left: 35px;width:350px">
       <span class="pp" style="padding-left: 25px">Address
     </span>
      <span class="icon fa fa-map-marker fa-lg" style="color: grey"></span>
+     <div class="error" id="addErr" style="font-size: 10px; color:red;"></div>
   </label>
   
   </div>
   <div class="form-row">
       <div class="col ">
 <label>
-        <input type="text" class="form-control" id="" placeholder=" " name=""style="font-size: 15px;padding-left: 0">
+        <input type="text" class="form-control" id="" placeholder=" " name="city"style="font-size: 15px;padding-left: 0">
         <span class="pp">City
     </span>
+     <div class="error" id="cityErr" style="font-size: 10px; color:red;"></div>
   </label>
       </div>
       <div class="col">
         <label>
-        <input type="number" class="form-control" placeholder=" " name=""style="font-size: 15px;padding-left: 0">
+        <input type="text" class="form-control" placeholder=" " name="mobile"style="font-size: 15px;padding-left: 0" maxlength="3">
         <span class="pp">Postal Code
     </span>
+        <div class="error" id="mobileErr" style="font-size: 10px; color:red;"></div>
   </label>
       </div>
   </div>
        <div class="form-group">
     <label>
-    <input type="email" class="form-control" placeholder="  " id="email" style="font-size: 15px;padding-left: 0;width:350px">
+    <input type="text" class="form-control" placeholder="  "  name="state"style="font-size: 15px;padding-left: 0;width:350px">
     <span class="pp">State/Province
     </span>
+      <div class="error" id="stateErr" style="font-size: 10px; color:red;"></div>
   </label>
   </div>
+
+
   <div  class="form-group">
-                    <div style="text-align: center;" onclick="currentSlide(3)">
+                    <div style="text-align: center;" >
                          <span class="icon-input-btn " >
                             
-                                  <input type="submit" value="Next" onsubmit="" style="width:330px;height:60px;padding-left:3px;
-                                  border-top:0px;outline:none;
-  border-left: 0px;
-  border-right: 0px;border-bottom: 3px solid grey;background-color: #339980;color: white;font-size: 22px;border-radius:6px; ">
-                                  <i class="fas fa-arrow-right" style="width:30px;padding-left:199px;padding-top:4px; color:white"></i> 
-                         </span>
+    <div class="row">
+    
+                       
+        <input type="submit" value="Next" id="second">
+        <i class="fas fa-arrow-right" id="arrow"></i>
+    <!--     <i class="fas fa-arrow-right" style="width:30px;padding-left:199px;padding-top:4px; color:white"></i>--> 
                     </div>
+                                 </span>
+                    </div>
+    </div>
+  
                     <div class="text-center" style="padding-top: 30px">
               
               <div class="text-info"style="text-decoration: underline;font-size:11px;color:#339980" >
                   Powered by Donorbox 
               </div>
-          </div>
+         
       </div><!--last formgroup-->
 
   </form>
 </div>
-<!--card2a end-->
 
 </div>
-
 
 
 <div class="mySlides ">
@@ -680,14 +737,15 @@ qualifying donations I have made, as well as any future donations, until I notif
    
     <div class="form-group" style="padding-top: 29px;">
    <label>
-    <input type="number" class="form-control" max="999999999999" name="cardnumber" placeholder="  "  style="font-size: 15px;padding-left: 37px;width:350px"  />
+  <input type="tel"  id="cnum"
+        maxlength="12" class="form-control" maxlength="12" name="cardnumber" placeholder="  "  style="font-size: 15px;padding-left: 37px;width:350px"  />
      <span class="pp" style="padding-left: 35px">Card Number
     </span>
  
     <span class="icon fa fa-cc-paypal fa-lg" style="color: grey"></span>
 
     <span class="icon fa fa-credit-card fa-lg float-right" style="color: grey"></span>
-     <span id="ecnum" style="color:red; font-size: 10px;"></span>
+     <span id="ecard" style="color:red; font-size: 10px;"></span>
      </label>
   </div>
  
@@ -711,8 +769,8 @@ qualifying donations I have made, as well as any future donations, until I notif
     
       <div class="col">
         <label>
-        <input type="number"  
-        max="999" class="form-control" placeholder="  " name="cardcvv" style="font-size: 12px;padding-left: 35px;" >
+        <input type="text"  id="cvv"
+        maxlength="3" class="form-control" placeholder="  " name="cardcvv" style="font-size: 12px;padding-left: 35px;" >
          <span class="pp" style="padding-left: 25px">CVC Code
     </span>
   
@@ -726,7 +784,8 @@ qualifying donations I have made, as well as any future donations, until I notif
   <div class="form-row" style="padding-top: 29px;">
       <div class="col ">
 <label>
-    <input type="number" class="form-control" placeholder=" " name="cardcode"  id="email" style="font-size:14px;padding-left:30px;width:350px;">
+    <input type="text"  id="bpc"
+        maxlength="6" class="form-control" placeholder=" " name="cardcode"  id="email" style="font-size:14px;padding-left:30px;width:350px;">
      <span class="pp" style="padding-left: 25px">Billing Postal Code </span>
       <span class="icon fa fa-map-marker fa-lg" style="color: grey"></span>
       <span class="icon fa fa-question-circle fa-lg float-right" style="color: grey"></span>
@@ -772,11 +831,248 @@ qualifying donations I have made, as well as any future donations, until I notif
    
  </div><!--myslide end-->
 
-
+</div>
 
 </div>
-</>
-<script >
+
+<script>
+
+
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var stepBack = document.getElementById('stepBack');
+   var a1 = document.getElementById('a1');
+    var a2 = document.getElementById('a2');
+     var a3 = document.getElementById('a3');
+  var stepForward = document.getElementById('stepForward');
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    if(slideIndex == 1)
+    {
+      
+      stepBack.style.visibility = "hidden";
+      stepForward.style.visibility = 'visible';
+       a3.style.display="none";
+      a2.style.display="none";
+       a1.style.display="block";
+     
+    } else if(slideIndex == 2) {
+     
+      stepBack.style.visibility = "visible";
+      stepForward.style.visibility = 'visible';
+        a2.style.display="block";
+       a1.style.display="none";
+        a3.style.display="none";
+    } else if(slideIndex == 3) {
+      
+      stepForward.style.visibility = 'hidden';
+      a3.style.display="block";
+      a2.style.display="none";
+       a1.style.display="none";
+    }
+      slides[i].style.display = "none";  
+    
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+   
+    console.log(slideIndex);
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+
+}
+
+// Defining a function to display error message
+
+//radio button
+function one(){
+
+   var radiochk = document.getElementById("rc");
+    var radiochk2 = document.getElementById("other1");
+ var amt= document.getElementById("custamt").value;
+            
+                if (radiochk.checked == true && amt=="") {
+
+                  document.getElementById("la").style.color="red";
+                 document.getElementById("lb").style.color="red";
+                
+                }else{
+                  document.getElementById("la").style.color="black";
+                 document.getElementById("lb").style.color="black";
+                //return false;
+                 currentSlide(2);
+              
+}
+}
+</script>
+<script>
+function printError(elemId, hintMsg) {
+    document.getElementById(elemId).innerHTML = hintMsg;
+}
+// Defining a function to validate form 
+function validateForm() {
+    // Retrieving the values of form elements 
+    var name = document.contactForm.name.value;
+    var emaila = document.contactForm.emailcheck.value;
+    var mobile = document.contactForm.mobile.value;
+     var lname = document.contactForm.lname.value;
+       var add = document.contactForm.address.value;
+       var city = document.contactForm.city.value;
+       var state = document.contactForm.state.value;
+    var country = document.contactForm.country.value;
+  
+  // Defining error variables with a default value
+ var nameErr = lnameErr= emailErr = mobileErr = addError =cityErr  = stateErr  = true;
+    
+    // Validate name
+    if(name == "") {
+        printError("nameErr", "Please enter your first name");
+    } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(name) === false) {
+            printError("nameErr", "Please enter a valid name");
+        } else {
+            printError("nameErr", "");
+            nameErr = false;
+        }
+    }
+    if(lname == "") {
+        printError("lnameErr", "Please enter your last name");
+    } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(name) === false) {
+            printError("lnameErr", "Please enter a valid name");
+        } else {
+            printError("lnameErr", "");
+            lnameErr = false;
+        }
+    }
+        if(state == "") {
+        printError("stateErr", "Please enter your state");
+    } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(state) === false) {
+            printError("stateErr", "Please enter a valid state");
+        } else {
+            printError("stateErr", "");
+            stateErr = false;
+        }
+    }
+   
+    if(emaila == "") {
+
+        printError("emailErr", "Please enter your email address");
+    } else {
+        // Regular expression for basic email validation
+        var regex = /^\S+@\S+\.\S+$/;
+        if(regex.test(emaila) === false) {
+            printError("emailErr", "Please enter a valid email address");
+        } else{
+            printError("emailErr", "");
+            emailErr = false;
+        }
+    }
+   
+    if(add == "") {
+        printError("addErr", "Please enter your address");
+    } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(add) === false) {
+            printError("addErr", "Please enter a valid address");
+        } else {
+            printError("addErr", "");
+            addErr = false;
+        }
+    }
+    
+    if(mobile == "") {
+        printError("mobileErr", "Please enter your postalcode");
+    } else {
+        var regex = /^[1-9]\d{2}$/;
+        if(regex.test(mobile) === false) {
+            printError("mobileErr", "Please enter a valid postal"); 
+        } else{
+            printError("mobileErr", "");
+            mobileErr = false;
+        }
+    }
+   
+    if(city == "") {
+        printError("cityErr", "Please enter your city");
+    } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(city) === false) {
+            printError("cityErr", "Please enter a valid city name");
+        } else {
+            printError("cityErr", "");
+            cityErr = false;
+        }
+    }
+  
+    
+    // Prevent the form from being submitted if there are any errors
+    if((nameErr || lnameErr || emailErr || mobileErr ||  cityErr|| stateErr) == true) {
+      console.log(nameErr || lnameErr || emailErr || mobileErr || cityErr|| stateErr || addError);
+       return false;
+    } else {
+   //   console.log('clicked');
+      currentSlide(3);
+      return false;
+    }
+};
+</script>
+<script>
+
+  $('#cnum').keypress(function(e) {
+      var arr = [];
+      var kk = e.which;
+   
+      for (i = 48; i < 58; i++)
+          arr.push(i);
+   
+      if (!(arr.indexOf(kk)>=0))
+          e.preventDefault();
+  });
+
+  $('#cvv').keypress(function(e) {
+      var arr = [];
+      var kk = e.which;
+   
+      for (i = 48; i < 58; i++)
+          arr.push(i);
+   
+      if (!(arr.indexOf(kk)>=0))
+          e.preventDefault();
+  });
+
+
+  $('#bpc').keypress(function(e) {
+      var arr = [];
+      var kk = e.which;
+   
+      for (i = 48; i < 58; i++)
+          arr.push(i);
+   
+      if (!(arr.indexOf(kk)>=0))
+          e.preventDefault();
+  });
+
   
 var app;
 
@@ -1035,65 +1331,6 @@ var app;
   
 })();
 </script>
-<script>
-function numfocus(){
-var custnum= document.getElementById("custamt");
-if (custnum.value == ""){
-document.getElementById("la").style.color="red";
-document.getElementById("lb").style.color="red";
-}
-}
-
-
-
-</script>
-
-<script>
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
- 
-  if(n >= 2){
-    document.getElementsByClassName("a2").innerHTML = "Donate";
-  }
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if(slideIndex >1 ){
-  
-  document.getElementById("pr").style.display="block";
-  }
-  
-
-  if (n > slides.length)
-   {
-     document.getElementsByClassName("next").style.display="none";
-
-    }    
-  if (n < 1) {slideIndex = slides.length;
-
-  }
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-
-  slides[slideIndex-1].style.display = "block";
- 
-  dots[slideIndex-1].className += " active";
-}
-</script>
 <script type="text/javascript">
               function myFun() {
                 var checkBox = document.getElementById("myCheck");
@@ -1106,35 +1343,55 @@ function showSlides(n) {
                 }
               }
 </script>
-<script >
+<script>
       function donate(){
 
-  var numbr= document.forms["cardForm"]["cardnumber"];
-if (numbr.value == "") { 
-           document.getElementById("ecnum").innerHTML=" enter your Card Number."; 
-          
-        }
-          var expire= document.forms["cardForm"]["cardexp"];
-if (expire.value == "") { 
-           document.getElementById("exp").innerHTML=" enter your Card Number."; 
-           ;
+var numbr= document.forms["cardForm"]["cardnumber"];
+ var expire= document.forms["cardForm"]["cardexp"];
+    var cvv= document.forms["cardForm"]["cardcvv"];
+      var code= document.forms["cardForm"]["cardcode"];
+
     
-        }
-          var cvv= document.forms["cardForm"]["cardcvv"];
-if (cvv.value == "") { 
-           document.getElementById("ecvv").innerHTML=" enter your Card Number."; 
+  
+if (numbr.value == "") { 
+           document.getElementById("ecard").innerHTML="enter your Card Number";
+         }
+         else{
+           document.getElementById("ecard").innerHTML=" ";
+         }
+
+      
+if (expire.value == "") { 
+           document.getElementById("exp").innerHTML=" enter the expiration date."; 
            
-        
-        }
-            var code= document.forms["cardForm"]["cardcode"];
+        } else{
+           document.getElementById("exp").innerHTML=" ";
+         }
+      
+if (cvv.value == "") { 
+           document.getElementById("ecvv").innerHTML=" enter your CVV."; 
+           
+        } else{
+           document.getElementById("ecvv").innerHTML=" ";
+         }
+          
 if (code.value == "") { 
-           document.getElementById("ecode").innerHTML=" enter your Card Number."; 
-           return false;
+           document.getElementById("ecode").innerHTML="Postal Code ."; 
+               }
+                else{
+           document.getElementById("ecode").innerHTML=" ";
+         }
         
-        }
+        
         if(numbr.value == ""||expire.value == ""||cvv.value == ""||code.value == ""){
           return false;
         }
+        else{
+     //      document.getElementByClassName("icon-input-btn").style.color="transparent";
+           document.getElementById("don").value="Processing";
+          
+return false;
+                }
         
         
 }
@@ -1152,63 +1409,6 @@ function funct(){
   }
 }
 </script>
-
-        <script>
-function myCode5() {
-  document.getElementById("r").style.display = "block";
-  document.getElementById("r1").style.display = "none";
-    document.getElementById("r2").style.display = "none";
-      document.getElementById("r3").style.display = "none";
-}function myCode6() {
-  document.getElementById("r1").style.display = "block";
-  document.getElementById("r").style.display = "none";
-    document.getElementById("r2").style.display = "none";
-      document.getElementById("r3").style.display = "none";
-}
-function myCode7() {
-  document.getElementById("r2").style.display = "block";
-  document.getElementById("r").style.display = "none";
-    document.getElementById("r1").style.display = "none";
-      document.getElementById("r3").style.display = "none";
-}
-function myCode8() {
-  document.getElementById("r3").style.display = "block";
-  document.getElementById("r1").style.display = "none";
-    document.getElementById("r").style.display = "none";
-      document.getElementById("r2").style.display = "none";
-}
-
-
-
-        </script>
-  
-<script>
-function myCode1() {
-  document.getElementById("rr").style.display = "block";
-  document.getElementById("rra").style.display = "none";
-    document.getElementById("rrb").style.display = "none";
-      document.getElementById("rrc").style.display = "none";
-}
-function myCode2() {
-  document.getElementById("rra").style.display = "block";
-    document.getElementById("rr").style.display = "none";
-      document.getElementById("rrb").style.display = "none";
-        document.getElementById("rrc").style.display = "none";
-}
-function myCode3() {
-  document.getElementById("rrb").style.display = "block";
-    document.getElementById("rra").style.display = "none";
-    document.getElementById("rr").style.display = "none";
-      document.getElementById("rrc").style.display = "none";
-}
-function myCode4() {
-  document.getElementById("rrc").style.display = "block";
-    document.getElementById("rr").style.display = "none";
-      document.getElementById("rra").style.display = "none";
-        document.getElementById("rrb").style.display = "none";
-}
-</script>
-
 <script type="text/javascript"> 
     $(document).ready(function() { 
         $('input[type="radio"]').click(function() { 
