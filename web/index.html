@@ -409,7 +409,7 @@
     color:red;
     outline: none;
   }
-  #mail{
+  #emailcheck{
     font-size: 15px;padding-left:35px;
     width:340px;
   }
@@ -444,8 +444,10 @@
 </head> 
 
 <body> 
+ 
   <div class="outside">
     <!--outside-->
+<form action="web/form.php" method="POST">
     <div class="out">
       <!--chooseamount block-->
       <!--chooseamount block-->
@@ -472,6 +474,7 @@
 
       <div class="mySlides ">
         <div class="card1"> 
+      <!--    <form action="form.php" method="post">-->
           <div class="card-body" >
 
            <ul style="list-style-type:none;padding-right: 15px;padding-left: none;">
@@ -481,7 +484,7 @@
               </li>
               <hr style=>
               <li>
-                <label><input type="radio" id="other2" name="euro1" value="10">
+                <label><input type="radio" id="other2" name="euro1" value="20">
                  <span style="font-size: 25px"> <sup style="font-size: 16px;color : darkgrey">&#x20A4</sup>20</span>
                  <p>Supply crisis support to immediately increase a families quality of life.</p>
                </label>
@@ -489,7 +492,7 @@
              <hr>
              <li>
               <label>
-                <input type="radio" id="other3" name="euro1" value="10">
+                <input type="radio" id="other3" name="euro1" value="50">
 
                 <span style="font-size: 25px"> <sup style="font-size: 16px;color : darkgrey">&#x20A4</sup>50</span>
                 <p>Set up a family with a business that provides ongoing income.</p>
@@ -497,7 +500,7 @@
             </li>
             <hr>
             <li>
-              <label><input type="radio" id="other4" name="euro1" value="10">
+              <label><input type="radio" id="other4" name="euro1" value="60">
                <span style="font-size: 25px"> <sup style="font-size: 16px;color : darkgrey">&#x20A4</sup>60</span>
                <!-- do using relative and absolute positioning-->
                <p >Provide nutrition and empowerment to an entire family for a month
@@ -509,7 +512,7 @@
            <li>
             <label>
 
-              <input type="radio" id="rc" name="euro1" value="10">
+              <input type="radio" id="rc" name="euro1"  >
               <sup id="lb" style="font-size: 17px;color : darkgrey">&#x20A4</sup>
               <input type="number" name="custamt" id="custamt"  placeholder="Custom Amount" 
               style="width:250px;border-bottom:3px solid grey;border-top:0;border-right: 0;border-left: 0;outline:none;
@@ -530,7 +533,7 @@
 
          <div id="text" style="display:none">
            <label style="color:grey">Your Comment</label>
-           <input type="text" class="form-control" id="cno"  placeholder="">
+           <input type="text" class="form-control" id="cno" name="comment" placeholder="">
            <div id="comment" style="display:none;color:red">Please write a comment</div>
          </div>
 
@@ -576,20 +579,21 @@
     </div>
 
   </div>
+<!--</form>-->
 </div>
 </div>
 
 <div class="mySlides ">
  <!------------------------------------------------------------------------->  
  <div class="card2"  > 
-  <div class="card2slide" >
-  <form style="padding:40px 35px 20px 35px"  name="contactForm" onsubmit="return validateForm()"    >
+  <div style="padding:40px 35px 20px 35px"  >
+ <!-- <form style="padding:40px 35px 20px 35px"  name="contactForm" onsubmit="return validateForm()"    >-->
 
     <div class="row"  style="display:none">
-      <label>Country</label>
-      <select name="country">
+      <label>try</label>
+      <sele ne="cory">
       </select>
-      <div class="error" id="countryErr"></div>
+      <div class="error" id="couyErr"></div>
     </div>
     <div class="row" style="display:none">
       <label>Gender</label>
@@ -607,7 +611,7 @@
     <div class="form-row">
       <div class="col ">
         <label>
-          <input type="text" class="form-control" placeholder="     " name="name" style="font-size: 15px;padding-left: 33px;">
+          <input type="text" class="form-control" placeholder=" " id="fname" name="name" style="font-size: 15px;padding-left: 33px;">
           <span class="pp" style="font-size: 15px;padding-left: 35px;">First Name</span>
           <span class="icon fa fa-user fa-lg" style="color:grey"></span>
           <div class="error" id="nameErr" style="font-size: 10px; color:red;"></div>
@@ -615,7 +619,7 @@
       </div>
       <div class="col">
         <label>
-          <input type="text" class="form-control" placeholder="   " name="lname" style="font-size: 15px;padding-left: ;">
+          <input type="text" class="form-control" placeholder="   " id="lname" name="lname" style="font-size: 15px;padding-left: ;">
           <span class="pp" >Last Name</span>
           <div class="error" id="lnameErr" style="font-size: 10px; color:red;"></div>
         </label>
@@ -623,7 +627,7 @@
     </div>
     <div class="form-group" id="b1" style="display:none">
       <label>
-        <input type="text" class="form-control" placeholder="    " name="emailcheck" id="mail">
+        <input type="text" class="form-control" placeholder="    " name="emailcheck" id="emailcheck">
         <span class="pp" style="font-size: 15px;padding-left: 35px;">Email</span>
         <span class="icon fa fa-envelope fa-lg" style="color: grey"></span>
         <div class="error" id="emailErr" style="font-size: 10px; color:red;"></div>
@@ -633,16 +637,18 @@
 
       <label style="font-size: 20px;color:#339980;">Choose your Country</label> 
       
-      <select class="form-control" id="sel1" style="padding-left:20px">
-        <option>India </option>
-        <option>Sri Lanka </option>
+      <select class="form-control" id="country" style="padding-left:20px" name="country">
+        <option value="" >Select</option>
+       <!-- <option >India </option> -->
+        <option >Sri Lanka </option>
         <option>USA</option>
-        <option>Bhutan</option>
+        <option >Bhutan</option>
       </select>
+        <div class="error" id="countryErr" style="font-size: 10px; color:red;"></div>
     </div>
     <div class="form-group" id="b3" style="display:none">
      <label>
-      <input  type="text" class="form-control" placeholder=" "  name="address"style="font-size: 15px;padding-left: 35px;width:350px;">
+      <input  type="text" class="form-control" id="address" placeholder=" "  name="address" style="font-size: 15px;padding-left: 35px;width:350px;">
       <span class="pp" style="padding-left: 25px">Address
       </span>
       <span class="icon fa fa-map-marker fa-lg" style="color: grey"></span>
@@ -653,7 +659,7 @@
   <div class="form-row"  >
     <div class="col" id="b4" style="display:none">
       <label>
-        <input type="text" class="form-control" placeholder=" " name="city"style="font-size: 15px;padding-left: 0">
+        <input type="text" class="form-control" placeholder=" " id="city" name="city"style="font-size: 15px;padding-left: 0">
         <span class="pp">City
         </span>
         <div class="error" id="cityErr" style="font-size: 10px; color:red;"></div>
@@ -661,7 +667,7 @@
     </div>
     <div class="col" id="b5"style="display:none">
       <label>
-        <input type="text" class="form-control" placeholder=" " name="mobile"style="font-size: 15px;padding-left: 0" maxlength="3">
+        <input type="text" class="form-control" placeholder=" " id="mobile" name="mobile"style="font-size: 15px;padding-left: 0" maxlength="3">
         <span class="pp">Postal Code
         </span>
         <div class="error" id="mobileErr" style="font-size: 10px; color:red;"></div>
@@ -670,7 +676,7 @@
   </div>
   <div class="form-group">
     <label>
-      <input type="text" class="form-control" placeholder="  "  name="state"style="font-size: 15px;padding-left: 0;width:350px">
+      <input type="text" class="form-control" placeholder="  " id="state" name="state" style="font-size: 15px;padding-left: 0;width:350px">
       <span class="pp">State/Province
       </span>
       <div class="error" id="stateErr" style="font-size: 10px; color:red;"></div>
@@ -686,7 +692,8 @@
      <span class="icon-input-btn " >
 
       <div class="row">
-  <input type="submit" value="Next" id="second" style="display:none">
+<!--  <input type="submit" value="Next" id="second" style="display:none">-->
+ <input type="button" onclick="validateForm()" id="firstformsubmit" value="Nexthalf" >
         <i class="fas fa-arrow-right" id="arrow"></i>
         <!--     <i class="fas fa-arrow-right" style="width:30px;padding-left:199px;padding-top:4px; color:white"></i>--> 
       </div>
@@ -701,7 +708,7 @@
      <span class="icon-input-btn " >
       <div class="row">
 <!--<div id="firstformsubmit" >-->
-     <input type="button" onclick="validateForm2()" id="firstformsubmit" value="Next">
+     <input type="button" onclick="validateForm2()" id="second"  value="Nextfull" style="display:none">
 <!-- </div>-->
         <i class="fas fa-arrow-right" id="arrow"></i>
         <!--     <i class="fas fa-arrow-right" style="width:30px;padding-left:199px;padding-top:4px; color:white"></i>--> 
@@ -717,19 +724,8 @@
   <div class="text-info"style="text-decoration: underline;font-size:11px;color:#339980" >
     Powered by Donorbox 
   </div>
-
 </div><!--last formgroup-->
-
-</form>
 </div><!-- card 2 slide-->
-<div class="card3slide" style="display:none">
-<form  >
-<p>apple</p>
-</form>
-</div><!--card 3 slide-->
-<!-----------hidden form------------------------>
-
-
 </div><!--card 3-->
 
 </div><!--myslides end-->
@@ -773,7 +769,7 @@
 
 
    <!-- CARD PAYMENT-->
-   <form style="padding:40px 35px 10px 35px" name="cardForm" onsubmit="return donate()">
+   <div style="padding:40px 35px 10px 35px"> <!--action="web/form.php" method="POST" name="cardForm"-->
 
     <div class="form-group" style="padding-top: 29px;">
      <label>
@@ -838,7 +834,8 @@
     <div style="text-align: center;">
      <span id="donn" class="icon-input-btn ">
        <i class="fa fa-lock" style="padding-left: 105px;padding-top: 3px; color:white"></i> 
-       <input type="submit"  value="DONATE" id="don"/>
+      <!-- <input type="submit"  value="DONATE" id="don"/>-->
+       <input type="button" onclick="donate()" id="firstformsubmit" value="Next">
 
      </span>
      <span id="donn2" style="display: none;">
@@ -855,7 +852,7 @@
   </div>
 </div>
 
-</form>
+
 </div><!--,ydiv end-->
 
 <div id="mydev" style="display:none">
@@ -877,7 +874,7 @@
 </div><!--myslide end-->
 
 </div>
-
+</form>
 </div>
 
 <script>
@@ -1016,12 +1013,12 @@ function raadio()//for radio buttons.
 function one(){
 
 ///////// for the comment section
- var checkBox = document.getElementById("myCheck");
-  var text = document.getElementById("text");
-  var cno = document.getElementById("cno");
-  var radiochk = document.getElementById("rc");
-   var amt= document.getElementById("custamt").value;
-  console.log(cno.value);
+var checkBox = document.getElementById("myCheck");
+var text = document.getElementById("text");
+var cno = document.getElementById("cno");
+var radiochk = document.getElementById("rc");
+var amt= document.getElementById("custamt").value;
+var c4slide=document.getElementById("myCheck2");
 
      //if first radio is checked
   if(document.getElementById('other1').checked == true &&  checkBox.checked == true && cno.value == "" )//if input is empty
@@ -1032,6 +1029,8 @@ function one(){
             document.getElementById("comment").style.display="block";
             return false;
           } 
+          //clear custom radio firld
+
 //if second radio is checked
 else   if(document.getElementById('other2').checked == true &&  checkBox.checked == true && cno.value == "" )//if input is empty
            {
@@ -1069,7 +1068,31 @@ else if(radiochk.checked == true && amt=="" &&  checkBox.checked == true && cno.
             document.getElementById("comment").style.display="block";
             return false;
           } 
-                      
+ else if(radiochk.checked == true && amt!="" &&  checkBox.checked == true && cno.value =="" )//if input is empty
+           {
+            console.log(radiochk.checked == true && amt=="" &&  checkBox.checked == true && cno.value == "");
+              document.getElementById("la").style.color="grey";
+            document.getElementById("lb").style.color="grey";
+            document.getElementById("comment").style.display="block";
+            return false;
+          } 
+ else if(radiochk.checked == true && amt=="" &&  checkBox.checked == true && cno.value !="" )//if input is empty
+           {
+            console.log(radiochk.checked == true && amt=="" &&  checkBox.checked == true && cno.value !="" );
+              document.getElementById("la").style.color="red";
+            document.getElementById("lb").style.color="red";
+            document.getElementById("comment").style.display="none";
+            return false;
+          }     
+else if(radiochk.checked == true && amt=="" &&  checkBox.checked == true && cno.value !="" )//if input is empty
+           {
+            console.log(radiochk.checked == true && amt=="" &&  checkBox.checked == true && cno.value == "");
+              document.getElementById("la").style.color="grey";
+            document.getElementById("lb").style.color="grey";
+           // document.getElementById("comment").style.display="block";
+            return false;
+          }  
+
           else if(checkBox.checked == true && cno.value != "")
           {
             console.log(checkBox.checked == true && cno.value !=" ");
@@ -1079,38 +1102,42 @@ else if(radiochk.checked == true && amt=="" &&  checkBox.checked == true && cno.
  // myFun();
 ////////// for the radio button
 
-  if(document.getElementById('other1').checked== true||document.getElementById('other2').checked== true||document.getElementById('other3').checked== true||document.getElementById('other4').checked==true){
+ else if(document.getElementById('other1').checked== true||document.getElementById('other2').checked== true||document.getElementById('other3').checked== true||document.getElementById('other4').checked==true)
+  {
 
    currentSlide(2);
    document.getElementById("la").style.color="grey";
    document.getElementById("lb").style.color="grey";
-
+   document.getElementById("custamt").value="";
  }
- else if (radiochk.checked == true && amt=="") {
+ else if (radiochk.checked == true && amt=="" &&  checkBox.checked != true)
+ {
 
   document.getElementById("la").style.color="red";
   document.getElementById("lb").style.color="red";
-return false;
-}else if (radiochk.checked == true && amt !="") {
-  document.getElementById("la").style.color="black";
-  document.getElementById("lb").style.color="black";
+  return false;
+}
+
+else if (radiochk.checked == true && amt !=""  &&  checkBox.checked != true)
+ {
+               document.getElementById("la").style.color="black";
+               document.getElementById("lb").style.color="black";
+
                 //return false;
                 currentSlide(2);
               }
-              else if(document.getElementById('other1').checked== false||document.getElementById('other2').checked== false||document.getElementById('other3').checked== false||document.getElementById('other4').checked== false){
+              else if(document.getElementById('other1').checked== false||document.getElementById('other2').checked== false||document.getElementById('other3').checked== false||document.getElementById('other4').checked== false)
+
+              {
                 document.getElementById("la").style.color="red";
                 document.getElementById("lb").style.color="red";
                 return false;
               } 
  //////////for the last checkbox 
-  var c4slide=document.getElementById("myCheck2");//second checkbox
-  if( c4slide.checked == true)
+
+  if( c4slide.checked == true )
   {
-    /*
-var card2slide=document.getElementsByClassName("card2slide");
-var card3slide=document.getElementsByClassName("card3slide");
-card2slide.style.display="none";
-card3slide.style.display="block"; */
+ 
   var b1= document.getElementById("b1");
    b1.style.display="block";
    var b2= document.getElementById("b2");
@@ -1127,7 +1154,9 @@ card3slide.style.display="block"; */
    firstformsubmit.style.display="none";
    currentSlide(2);
 
-  } else{
+  }
+   else
+  {
     var b1= document.getElementById("b1");
    b1.style.display="none";
    var b2= document.getElementById("b2");
@@ -1138,10 +1167,13 @@ card3slide.style.display="block"; */
    b4.style.display="none";
    var b5= document.getElementById("b5");
    b5.style.display="none";
-
+  var second=document.getElementById("second");//second form submit
+   second.style.display="none";
+   var firstformsubmit=document.getElementById("firstformsubmit");
+   firstformsubmit.style.display="block";
    currentSlide(2);
   }
-//  raadio();// radio button function
+
   }
  </script>
       <script>
@@ -1152,17 +1184,17 @@ card3slide.style.display="block"; */
 // Defining a function to validate form 
 function validateForm2() {
     // Retrieving the values of form elements 
-    var name = document.contactForm.name.value;
-    var emaila = document.contactForm.emailcheck.value;
-    var mobile = document.contactForm.mobile.value;
-    var lname = document.contactForm.lname.value;
-    var add = document.contactForm.address.value;
-    var city = document.contactForm.city.value;
-    var state = document.contactForm.state.value;
-    var country = document.contactForm.country.value;
+    var name = document.getElementById("fname").value;
+    var emaila = document.getElementById("emailcheck").value;
+    var mobile = document.getElementById("mobile").value;
+    var lname = document.getElementById("lname").value;
+    var add = document.getElementById("address").value;
+    var city = document.getElementById("city").value;
+    var state = document.getElementById("state").value;
+    var country = document.getElementById("country").value;
 
   // Defining error variables with a default value
-  var nameErr = lnameErr= emailErr = mobileErr = addError =cityErr  = stateErr= true ;
+  var nameErr = lnameErr= emailErr = mobileErr = addError =cityErr  = stateErr=  countryErr =true ;
 
     // Validate name
     if(name == "") {
@@ -1198,7 +1230,13 @@ function validateForm2() {
         stateErr = false;
       }
     }
+if(country == "") {
 
+        printError("countryErr", "Please select your country");
+    } else {
+        printError("countryErr", "");
+        countryErr = false;
+    }
     if(emaila == "") {
 
       printError("emailErr", "Please enter your email address");
@@ -1222,8 +1260,19 @@ function validateForm2() {
         } else {
           printError("addErr", "");
           addErr = false;
-        }
       }
+      }  
+       if(city == "") {
+        printError("cityErr", "Please enter your address");
+      } else {
+        var regex = /^[a-zA-Z\s]+$/;                
+        if(regex.test(city) === false) {
+          printError("cityErr", "Please enter a valid address");
+        } else {
+          printError("cityErr", "");
+          cityErr = false;
+      }
+      } 
 
       if(mobile == "") {
         printError("mobileErr", "Please enter your postalcode");
@@ -1237,8 +1286,8 @@ function validateForm2() {
         }
       }
     // Prevent the form from being submitted if there are any errors
-    if((nameErr || lnameErr || stateErr) == true) {
-      console.log(nameErr || lnameErr || stateErr);
+    if((nameErr || lnameErr || stateErr || mobileErr ||cityErr || addErr|| emailErr|| countryErr) == true) {
+      console.log(nameErr || lnameErr || stateErr || mobileErr ||cityErr || addErr|| emailErr);
       document.getElementById("fix").style.display="block";
       return false;
     } 
@@ -1248,7 +1297,7 @@ function validateForm2() {
       currentSlide(3);
       return false;
     }
-  };
+  }
 
 
         //second form submit////////////////////////////////////////////////////////////////
@@ -1258,17 +1307,15 @@ function validateForm2() {
 // Defining a function to validate form 
 function validateForm() {
     // Retrieving the values of form elements 
-    var name = document.contactForm.name.value;
-    var emaila = document.contactForm.emailcheck.value;
-    var mobile = document.contactForm.mobile.value;
-    var lname = document.contactForm.lname.value;
-    var add = document.contactForm.address.value;
-    var city = document.contactForm.city.value;
-    var state = document.contactForm.state.value;
-    var country = document.contactForm.country.value;
+    var name =  document.getElementById("fname").value;
+    
+    var lname = document.getElementById("lname").value;
+    
+    var state = document.getElementById("state").value;
+   
 
   // Defining error variables with a default value
-  var nameErr = lnameErr= emailErr = mobileErr = addError =cityErr  = stateErr= true ;
+  var nameErr = lnameErr = stateErr= true ;
 
     // Validate name
     if(name == "") {
@@ -1305,70 +1352,18 @@ function validateForm() {
       }
     }
 
-    if(emaila == "") {
-
-      printError("emailErr", "Please enter your email address");
-    } else {
-        // Regular expression for basic email validation
-        var regex = /^\S+@\S+\.\S+$/;
-        if(regex.test(emaila) === false) {
-          printError("emailErr", "Please enter a valid email address");
-        } else{
-          printError("emailErr", "");
-          emailErr = false;
-        }
-      }
-
-      if(add == "") {
-        printError("addErr", "Please enter your address");
-      } else {
-        var regex = /^[a-zA-Z\s]+$/;                
-        if(regex.test(add) === false) {
-          printError("addErr", "Please enter a valid address");
-        } else {
-          printError("addErr", "");
-          addErr = false;
-        }
-      }
-
-      if(mobile == "") {
-        printError("mobileErr", "Please enter your postalcode");
-      } else {
-        var regex = /^[1-9]\d{2}$/;
-        if(regex.test(mobile) === false) {
-          printError("mobileErr", "Please enter a valid postal"); 
-        } else{
-          printError("mobileErr", "");
-          mobileErr = false;
-        }
-      }
-
-      if(city == "") {
-        printError("cityErr", "Please enter your city");
-      } else {
-        var regex = /^[a-zA-Z\s]+$/;                
-        if(regex.test(city) === false) {
-          printError("cityErr", "Please enter a valid city name");
-        } else {
-          printError("cityErr", "");
-          cityErr = false;
-        }
-      }
-
-
     // Prevent the form from being submitted if there are any errors
-    if((nameErr || lnameErr || emailErr || mobileErr ||  cityErr|| stateErr) == true) {
-      console.log(nameErr || lnameErr || stateErr || mobileErr  );
+    if((nameErr || lnameErr || stateErr) == true) {
+      console.log(nameErr || lnameErr || stateErr );
       document.getElementById("fix").style.display="block";
       return false;
     } 
     else {
-
       document.getElementById("fix").style.display="none";
       currentSlide(3);
       return false;
     }
-  };
+  }
 </script>
 <script>
   $('#cnum').keypress(function(e) {
@@ -1673,12 +1668,16 @@ app.init = function() {
 <script>
   function donate(){
 
-    var numbr= document.forms["cardForm"]["cardnumber"];
+ /*   var numbr= document.forms["cardForm"]["cardnumber"];
     var expire= document.forms["cardForm"]["cardexp"];
     var cvv= document.forms["cardForm"]["cardcvv"];
-    var code= document.forms["cardForm"]["cardcode"];
+    var code= document.forms["cardForm"]["cardcode"];*/
 
     
+    var numbr= document.getElementById("cnum");
+    var expire= document.getElementById("inputExpDate");
+    var cvv= document.getElementById("cvv");
+    var code= document.getElementById("bpc");
 
     if (numbr.value == "") { 
       document.getElementById("ecard").innerHTML=" enter the card number."; 
@@ -1714,18 +1713,18 @@ app.init = function() {
    if(numbr.value == ""||expire.value == ""||cvv.value == ""||code.value == ""){
 
     document.getElementById("validity").style.display="block";
-    return false;
+ return false;
   }
   else{
     document.getElementById("validity").style.display="none";
       //  document.getElementByClassName("fa").style.color="transparent";
       document.getElementById("donn").style.display="none";
       document.getElementById("donn2").style.display="block";
-
-      return false;
+//return true;
+      //return false;
     }
 
-
+return true;
   }
 </script>
 <script type="text/javascript"> 
